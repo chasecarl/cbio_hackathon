@@ -4,7 +4,7 @@ import numpy as np
 
 
 def get_basic_file():
-    df_all_cpg = pd.read_csv('res/res/cpg.csv', sep='\t', names=['chr', 'start', 'end', 'Index'])
+    df_all_cpg = pd.read_csv('res/cpg.csv', sep='\t', names=['chr', 'start', 'end', 'Index'])
     df_all_cpg = df_all_cpg.reindex(columns=(['Index'] + list([a for a in df_all_cpg.columns if a != 'Index'])))
     df_all_cpg.set_index('Index')
     df_all_cpg['Index'] = df_all_cpg['Index'].str.replace('CpG', '')

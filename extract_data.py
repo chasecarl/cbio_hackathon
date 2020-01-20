@@ -10,7 +10,7 @@ def get_basic_file():
     df_all_cpg['Index'] = df_all_cpg['Index'].str.replace('CpG', '')
     df_all_cpg.insert(loc=4, column='is_in_island', value=0)
     df_all_cpg.insert(loc=5, column='M_percentage', value=0.0)
-    df_islands = pd.read_csv('res/res/cpg_islands.csv', sep='\t', header=None, names=['chr', 'start', 'end'])
+    df_islands = pd.read_csv('res/cpg_islands.csv', sep='\t', header=None, names=['chr', 'start', 'end'])
     for island_indx in range(df_islands.shape[0]):
         print(island_indx)
         start, end = df_islands.loc[island_indx, 'start'], df_islands.loc[island_indx, 'end']
@@ -18,7 +18,7 @@ def get_basic_file():
         cpgs = df_all_cpg[indx]
         df_all_cpg.loc[indx, 'is_in_island'] = 1
     df_all_cpg.set_index('Index')
-    df_all_cpg.to_csv('res/res/data.csv', sep='\t', index=False, index_label='Index')
+    df_all_cpg.to_csv('res/data.csv', sep='\t', index=False, index_label='Index')
 
 
 if __name__ == '__main__':
